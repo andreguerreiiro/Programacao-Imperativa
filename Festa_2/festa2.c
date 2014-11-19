@@ -165,10 +165,26 @@ int hat_trick(int* a, int n, int x){
 //========================================== B END
 
 //========================================== C START
+int gas(double* a, int n){
+    int peak = -1;
+    for(int i = 0; i < n - 1; i++){
+        if(a[i + 1] > a[i]){
+            peak = i + 1;
+        }
+    }
+    return peak;
+}//Correct returns last rise index
 
+int gas_sub(const double* a, int y){
+    int result = -1;
+    for(int i = 0; i < y - 1; i++){
+        if(a[i + 1] < a[i]){
+            return i + 1;
+        }
+    }
+    return result;
+}
 //========================================== C END
-
-
 void test_problem_A(void){
     int fill, x, arr[1000] = {0};
     fill = x = 0;
@@ -186,11 +202,21 @@ void test_problem_B(void){
 }
 
 void test_problem_C(void){
-    int x, arr[1000];
-    fill = x = 0;
-    scanf("%d\n", &x);
-    int n = doubles_get(arr);
-    
+    double arr[1000];
+    int n = doubles_get(arr),
+        y = gas(arr, n),
+        z
+    ;
+    if(y == -1){
+        printf("void\n");
+    }else{
+        z = gas_sub(arr + y, n - y);
+        if(z == -1){
+            printf("void\n");
+        }else{
+            printf("%d\n", n - y - z - 1);
+        }
+    }
 }
 
 // --------------------
