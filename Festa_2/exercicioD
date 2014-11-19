@@ -1,0 +1,49 @@
+#include <stdio.h> 
+#include <math.h>
+#include <assert.h>
+#include <limits.h>
+
+int ints_get_some(int *a, int n)
+{
+  int result = 0;
+  int x;
+  while (result < n && scanf("%d", &x) != EOF)
+    a[result++] = x;
+  return result;
+}
+
+int nrcabazes(int *a, int n, int x)
+{
+  int result=0;
+  for (int i = 0; i < n; i++)
+    result += a[i]/x;
+  return result;
+}
+
+int nrcabazesY(int *a, int n, int y)
+{
+  int x = 1;
+  while( nrcabazes(a,n,x) >= y )
+  {
+    x++;
+  }
+  return x-1;
+}
+
+void nrcabazesY_test()
+{
+  int a[1000], n, y;
+  scanf("%d", &n);
+  ints_get_some(a,n);
+  while (scanf("%d", &y) != EOF)
+  {
+    int z = nrcabazesY(a,n,y);
+	printf("%d\n", z);
+  }
+}
+
+int main()
+{
+  nrcabazesY_test();
+  return 0;
+}
