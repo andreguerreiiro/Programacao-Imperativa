@@ -140,6 +140,25 @@ void flights_isort_gen(Flight *a, int n, Flight_cmp cmp){
 // 	flights_write(stdout, flights, n_flights);
 // } 
 
+/*int main(int argc, char **argv)
+{
+ char x = 'A';
+ char *filename = "partidas_faro.txt";
+ if (argc > 1)
+ x = *argv[1];
+ if (x == 'A')
+ test_flights_read_write();
+ else if (x == 'B')
+ test_flight_flights_find_to_destination();
+ else if (x == 'C')
+ test_flights_read_write_better(argc > 2 ? argv[2] : filename);
+ else if (x == 'D')
+ test_flight_flights_find_to_destination_better
+ (argc > 2 ? argv[2] : filename);
+ else
+ printf("%c Invalid option.\n", x);
+ return 0;
+} */
 
 int main(int argc, char **argv){
 	char x = 'A';
